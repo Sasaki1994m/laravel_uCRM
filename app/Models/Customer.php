@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Purchase;
 
 class Customer extends Model
 {
@@ -26,4 +27,10 @@ class Customer extends Model
             }
         }
     }
+    // hasmanyはメソッド名が複数形のほうが推奨
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
+
 }
